@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">From Agent package to verified release</title>
+  <desc id="desc">The agent prepares a package. A reviewer inspects changes and signs requirements. Revisions return to exact-version approval. One authorized start leads to publication and portable verification.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#6d8778"/></marker></defs>
+  <rect width="1200" height="480" rx="16" fill="#f5f6f0"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#1d3026">
+    <text x="40" y="48" font-size="15" letter-spacing="2.4">THE RELEASE JOURNEY</text>
+    <text x="40" y="84" font-size="25" font-weight="700">A clear handoff at every step.</text>
+    <g fill="#ffffff" stroke="#d5ddd4"><rect x="40" y="120" width="340" height="136" rx="12"/><rect x="430" y="120" width="340" height="136" rx="12"/><rect x="820" y="120" width="340" height="136" rx="12"/><rect x="820" y="306" width="340" height="136" rx="12"/><rect x="430" y="306" width="340" height="136" rx="12"/><rect x="40" y="306" width="340" height="136" rx="12" fill="#e5eee4"/></g>
+    <g font-size="12" fill="#526f5e" letter-spacing="1.4"><text x="64" y="150">01 / AGENT</text><text x="454" y="150">02 / REVIEWER</text><text x="844" y="150">03 / AGENT + REVIEWER</text><text x="844" y="336">04 / REVIEWER</text><text x="454" y="336">05 / EXECUTOR</text><text x="64" y="336">06 / EVERY COLLABORATOR</text></g>
+    <g font-size="22" font-weight="700"><text x="64" y="185">Prepare the package</text><text x="454" y="185">Review exact changes</text><text x="844" y="185">Resolve signed feedback</text><text x="844" y="371">Approve the revision</text><text x="454" y="371">Authorize and publish</text><text x="64" y="371">Verify and keep evidence</text></g>
+    <g font-size="14" fill="#59685e"><text x="64" y="218">HTML, purpose, changes and tests</text><text x="454" y="218">Fixed-version link, diff and preview</text><text x="844" y="218">Reasons and acceptance criteria</text><text x="844" y="404">One decision for the exact version</text><text x="454" y="404">One start, one recoverable attempt</text><text x="64" y="404">Originals, chain record and delivered bytes</text></g>
+  </g>
+  <g fill="none" stroke="#6d8778" stroke-width="2" marker-end="url(#arrow)"><path d="M380 188h44"/><path d="M770 188h44"/><path d="M990 256v44"/><path d="M820 374h-44"/><path d="M430 374h-44"/></g>
+</svg>

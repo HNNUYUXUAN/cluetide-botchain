@@ -1,6 +1,6 @@
 {
   "schema": "cluetide.public-repository-manifest.v1",
-  "generated_at": "2026-10-14T16:16:16+08:00",
+  "generated_at": "2026-10-14T16:59:00+08:00",
   "deployed_source_commit": "1655aa887fadf30bbdf8a0ce9dfbe02c2b0a1609",
   "files": [
     {
@@ -132,6 +132,21 @@
       "path": "docs/getting-started.md",
       "bytes": 2038,
       "sha256": "4dd0ba12f0679d8b292661c0bb71cd9a50eb42451b82612aefaca26549ea9786"
+    },
+    {
+      "path": "docs/images/cluetide-cover.svg",
+      "bytes": 2313,
+      "sha256": "8ebcc559a414e5d6afb20473abf376afee24833bcaf40dbf9dd2eb1e512084f7"
+    },
+    {
+      "path": "docs/images/product-home.png",
+      "bytes": 65102,
+      "sha256": "c716f79297a826b048218aedb6fb61d0734fe8fe733cd1473b698dc2b58db5d2"
+    },
+    {
+      "path": "docs/images/release-workflow.svg",
+      "bytes": 2608,
+      "sha256": "0d99aa43ddde56b49c96c9d226ea5d2e7332a26dab560eba057133600d223f34"
     },
     {
       "path": "docs/public-wallet-acceptance.md",
@@ -720,8 +735,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4483,
-      "sha256": "c8ef71bc0edef7f9c48182f28d3153a89c844af0ba7061b466103357c502ea82"
+      "bytes": 13945,
+      "sha256": "e9fe5bff1a8193d7ef897e67125ee9ce1655b4374d54ec1cee656b6b33bca884"
     },
     {
       "path": "requirements-dev.txt",
@@ -865,8 +880,8 @@
     },
     {
       "path": "submission.txt",
-      "bytes": 5376,
-      "sha256": "ecab10025ad78f2142222d7faac031942ac399acb846d03318768df1f676591f"
+      "bytes": 5502,
+      "sha256": "46360a05e0597e950bf6115d2da98c160ecfdd298f4952c7a52d80669dfbeb93"
     },
     {
       "path": "tests/test_release_agent.py",
