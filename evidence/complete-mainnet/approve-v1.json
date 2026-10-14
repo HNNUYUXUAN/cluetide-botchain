@@ -1,0 +1,56 @@
+{
+  "status": "verified",
+  "chain_id": 677,
+  "action": "approve",
+  "transaction_hash": "0xe4fa5b7181ad39f5723108e442dfd294cf95081eb9feac724d7d1d481a13246d",
+  "contract_address": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+  "artifact": {
+    "contract_name": "ClueTideReleaseWitness",
+    "compiler": "0.8.30+commit.73712a01",
+    "evm_version": "paris",
+    "source_sha256": "70fd0d0af14f2b694c03f5638b06bb4bbdeb3451224197f79350922afd1f538a",
+    "artifact_sha256": "f8aa0ad14ea29442a45ca8d1ca7ddb34bfca8093ac96f1d9681e6d52de64621b",
+    "bytecode_sha256": "d8d72eb81449aed3657c75817ea836ef0d9ae673c70286e923be6100e25b261a",
+    "runtime_sha256": "e93f90633367ec24b273c6590639ba1dabb277b2f318a1182530a1c8469f328c"
+  },
+  "commitments": {
+    "task_id": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+    "version_id": "1",
+    "manifest_hash": "0x56401b33a09b620103db617dd3989eca3a8f56e915718233501a1753cd3f419e",
+    "artifact_hash": "0x9b7d74038f3576412a1f8ee6e48d9a6cab31224fdbeece2f03b6e784c1e94610",
+    "deadline": "1792472637"
+  },
+  "confirmations": "277",
+  "minimum_confirmations": "3",
+  "block_number": "26513557",
+  "block_hash": "0xf63225a67073575f0898864e51158edf757cb9f285f83a7683bbd6e723dc00ec",
+  "gas_used": "43950",
+  "effective_gas_price": "20000000000",
+  "actual_fee_wei": "879000000000000",
+  "getter_state": {
+    "task": {
+      "owner": "0x054801af006663b16b84cee370267eca2b94686c",
+      "proposer": "0x054801af006663b16b84cee370267eca2b94686c",
+      "reviewer": "0xf888ff14ddcad446850756660042ccc330336565",
+      "executor": "0x054801af006663b16b84cee370267eca2b94686c",
+      "receipt_signer": "0xc0a54fc7daa998a2e8bacc015eeafd4591ac15a4",
+      "target_hash": "0x18b119bb1ecad244ddda6ea95b95cddc60f52783298d7f12d5d438c53d9d8a8f",
+      "version_count": "1",
+      "attempt_count": "0",
+      "created_at": "1791869342"
+    },
+    "version": {
+      "version_id": "1",
+      "parent_version_id": "0",
+      "manifest_hash": "0x56401b33a09b620103db617dd3989eca3a8f56e915718233501a1753cd3f419e",
+      "artifact_hash": "0x9b7d74038f3576412a1f8ee6e48d9a6cab31224fdbeece2f03b6e784c1e94610",
+      "deadline": "1792472637",
+      "decision": "1",
+      "approved_at": "1791869587",
+      "attempt_id": "0"
+    }
+  },
+  "onchain_ids": {
+    "version_id": "1"
+  }
+}

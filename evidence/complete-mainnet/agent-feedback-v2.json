@@ -1,0 +1,31 @@
+{
+  "task_id": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+  "feedback": [
+    {
+      "acceptance_conditions": [
+        "Say that any change creates a new version and requires a new reviewer approval.",
+        "Explain that original files, the confirmed chain receipt and downloaded artifact are checked separately.",
+        "State that file equality and the executor statement do not establish business quality."
+      ],
+      "chain_id": 677,
+      "content_hash": "0xa820fc3fdc64c066cf26dc36de40cbdbf156a1fda6c067b2f41733c754f54298",
+      "contract_address": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+      "correction_transaction_hash": "0x343d7065dd637a78f4a9c205c2b3df342366454aed2283fc338e16782347618b",
+      "manifest_hash": "0x26f37c075f0608d6710a63aac1b226dbb7119b1e0bba1ca2b223605ab863678d",
+      "reason": "The delivery-evidence section is too vague for partner sign-off. State how changed releases are reapproved and separate evidence of matching bytes from judgments about business quality.",
+      "received_at": "2026-10-13T06:12:35+00:00",
+      "reviewer": "0xf888ff14ddcad446850756660042ccc330336565",
+      "schema": "cluetide.review-feedback.v1",
+      "signature": "0xd6f36ea32feea5391b6eb39402c4715b06e421cec116d5d78dcb79178df6c3dc6e51209384b1f803e0ba8b577d091971ad29d3ddc347df0de091e8e4bb7b53841c",
+      "task_id": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+      "verification": {
+        "block_hash": "0x60acfc1bd8f4d17e7b047e0e3a47e622c4963eee06c3394c1500905815a77955",
+        "block_number": "26516262",
+        "confirmations": "452",
+        "observed_at": "2026-10-13T06:12:35+00:00",
+        "status": "verified"
+      },
+      "version_id": 2
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "cluetide.mainnet-submission.v1",
+  "checked_at": "2026-10-14T16:16:16+08:00",
+  "project": "ClueTide",
+  "tagline": "Approve an exact release. Verify what shipped.",
+  "product_url": "https://cluetide.vercel.app/",
+  "repository_url": "https://github.com/HNNUYUXUAN/cluetide-botchain",
+  "deployed_source_commit": "1655aa887fadf30bbdf8a0ce9dfbe02c2b0a1609",
+  "network": {
+    "name": "BOT Chain Mainnet",
+    "chain_id": 677,
+    "rpc_url": "https://rpc.botchain.ai",
+    "explorer_url": "https://scan.botchain.ai"
+  },
+  "contract_address": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+  "receipt_signer": "0xc0a54fc7daa998a2e8bacc015eeafd4591ac15a4",
+  "wallet_validation": "MetaMask; two role accounts controlled by one holder",
+  "primary_acceptance": {
+    "task_id": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+    "version": 3,
+    "attempt_id": "1",
+    "review_url": "https://cluetide.vercel.app/#/task/0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02?version=3",
+    "status": "receipt_recorded",
+    "verified_business_transactions": 9,
+    "total_actual_fee_bot": "0.02004582",
+    "transactions_file": "evidence/complete-mainnet/transactions.json",
+    "acceptance_bundle": "evidence/complete-mainnet/acceptance-v3.zip",
+    "acceptance_sha256": "45c413a90d96b75fe5a4bad5d46f9efe8b446676c0f2fcc8004d5b575520f9bc"
+  },
+  "supplementary_acceptance": {
+    "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+    "version": 3,
+    "attempt_id": "1",
+    "review_url": "https://cluetide.vercel.app/#/task/0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609?version=3",
+    "status": "published_receipt_registration_pending",
+    "verified_business_transactions": 8,
+    "total_actual_fee_bot": "0.01835736",
+    "cross_browser_recovery_and_publication": true,
+    "transactions_file": "evidence/cross-browser-publication/transactions.json",
+    "acceptance_bundle": "evidence/cross-browser-publication/acceptance-v3-receipt-pending.zip",
+    "acceptance_sha256": "a2ed0f68b71b99d4b8fe1e9d70055bb9965be448dff59cd05ad55c27a9c2e7d9"
+  },
+  "scope": {
+    "artifact": "one UTF-8 HTML file up to 32 KiB in an isolated demo target",
+    "economic_constraints": "version-specific reapproval, one-time start authorization and actual transaction Gas",
+    "verification": "original files/signatures, current chain commitment and current downloaded artifact are separate results",
+    "business_quality": "tests and human review",
+    "recording": "not inspected; not included as verified evidence"
+  }
+}

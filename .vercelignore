@@ -1,0 +1,15 @@
+.venv/
+**/node_modules/
+local-data/
+local-only/
+.env*
+*.key
+*.log
+data/
+tests/*
+!tests/test_release*.py
+history/
+literature/
+P2A/
+Review/
+A2A/

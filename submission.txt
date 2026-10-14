@@ -1,0 +1,68 @@
+【BOT Chain Mainnet 最终核验｜ClueTide】
+
+项目名称：ClueTide
+项目定位：面向 Web3 团队的 AI Agent 发布协作与交付核验工具。
+英文主张：Approve an exact release. Verify what shipped.
+
+项目简介：
+AI Agent 可以快速生成和修改项目页面，但多方协作仍需要共同确认：谁批准了哪一版、修改后是否重新批准、实际发布的文件是否与批准版本一致。
+
+ClueTide 将 Agent 准备、合作方审阅、签名更正、版本重审、一次性启动和实际交付核验串成完整流程。Agent 交接原件与测试证据；审阅方批准准确版本，或签署具体修改要求；Agent 按意见修订；执行方用自己的钱包启动受控发布；协作方保存验收包并独立核验。
+
+BOT Chain 记录任务角色、版本摘要、审阅决定、一次启动及回执承诺。原始 HTML 和完整材料在链下保存，公开审阅包和意见会明确公开。修改需要重新批准，执行授权只使用一次，实际 Gas 和操作记录可回查。交付核验分别说明文件与签名一致性、当前链上承诺和实际下载产物；业务质量由测试和人工审阅判断。
+
+一、C 端产品页面
+产品首页：https://cluetide.vercel.app/
+完整主网验收任务（固定 v3）：https://cluetide.vercel.app/#/task/0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02?version=3
+操作指南：https://cluetide.vercel.app/#/guide
+
+二、钱包交互
+公开页面提供 Connect Wallet 入口，本轮使用 MetaMask 完成真实主网验收。页面显示当前账户、下一步所需角色、完整目标地址、网络和当次费用；网络不正确时可添加或切换 BOT Mainnet。
+交易由用户自己的钱包确认并支付 Gas，成功后展示交易 Hash、确认状态、实际费用及区块浏览器链接。演示中的提案/执行与审阅两个角色账户由同一持有人控制。
+
+三、主网信息
+网络名称：BOT Chain Mainnet
+Chain ID：677
+RPC：https://rpc.botchain.ai
+区块浏览器：https://scan.botchain.ai
+
+四、用户主网交易路径
+1. 打开产品，导入 Agent 审阅包；也可从 Prepare a browser release 准备自己的演示任务。
+2. 匿名检查目的、准确版本、逐行差异、HTML 预览和测试证据。
+3. 连接提案/执行钱包，切到 BOT Mainnet，登记任务并提交准确版本。
+4. 指定审阅钱包批准该版本，或 Request correction 后签署无需 Gas 的更正意见。
+5. Agent 读取签名意见生成新版本，修改后重新提交和批准。
+6. 执行钱包 Authorize one start，受控发布批准产物；原包与启动 Hash 可在另一浏览器恢复同一 attempt。
+7. 登记回执，核对原件/签名、当前链上承诺与实际下载文件，并导出可离线核验的验收包。
+测试钱包需准备少量 BOT 支付 Gas。现有验收任务可匿名核验；发起新任务时应配置自己的提案、审阅和执行角色。
+
+五、BOT Chain Mainnet 合约
+ClueTideReleaseWitness：0xca71b77708674f5f2407c0ad4e599eaf5eb07281
+https://scan.botchain.ai/address/0xca71b77708674f5f2407c0ad4e599eaf5eb07281
+
+六、可核验的主网交易
+完整验收任务已完成九笔业务交易及一条无需 Gas 的反馈消息签名，累计实际 Gas 费用 0.02004582 BOT。
+任务登记：https://scan.botchain.ai/tx/0xdd236bacf67d0631daec67af6c92a3e73186bb2707f5e759f685b1f7ad0aead0
+v2 更正：https://scan.botchain.ai/tx/0x343d7065dd637a78f4a9c205c2b3df342366454aed2283fc338e16782347618b
+v3 重新批准：https://scan.botchain.ai/tx/0x52191524ff93cd0a715125bc059c115e313a2e1469d4d9fdb138514bc458628d
+一次启动：https://scan.botchain.ai/tx/0x93638d0448746d42d80aac86a15b2e7509639f9931ec2a2e288d360214ef1a61
+回执登记：https://scan.botchain.ai/tx/0x6542bf81beb6225736404396d8dacbf041ecdfc292c0dc1e813f062a2404fd03
+全部九笔台账：https://github.com/HNNUYUXUAN/cluetide-botchain/blob/main/evidence/complete-mainnet/transactions.json
+公开主网证据：https://github.com/HNNUYUXUAN/cluetide-botchain/blob/main/mainnet-evidence.json
+完整验收包：https://github.com/HNNUYUXUAN/cluetide-botchain/blob/main/evidence/complete-mainnet/acceptance-v3.zip
+
+七、AI Native 协作能力与已实现成果
+Agent CLI 提供 export、feedback、wait、verify-package 等命令，与浏览器和服务使用同一交换规范。签名更正绑定准确版本、清单、交易和正文摘要，Agent 能读取可核验的修改要求，再交接下一版。
+公开产品已部署 Vercel，Neon PostgreSQL 持久保存原件、意见和执行结果；服务按请求启动，三次数据库冷启动实测均小于 6 秒。
+完整验收任务已跑通改版重审、签名反馈、一次启动、实际发布、链上回执和验收包核验。另一项补充验收完成八笔交易及跨浏览器恢复实际发布，成果包离线核验通过；该补充任务的最终回执登记待接续。
+
+八、可审核代码
+独立开源仓库：https://github.com/HNNUYUXUAN/cluetide-botchain
+默认审核分支：main
+线上代码来源提交：1655aa887fadf30bbdf8a0ce9dfbe02c2b0a1609
+Frontend：Vite / React / TypeScript / viem
+Backend：FastAPI / Python 3.12 / PostgreSQL
+Smart Contract：Solidity 0.8.30
+Deployment：Vercel + Neon
+License：MIT
+当前执行范围：隔离目标内的单个不超过 32 KiB 的 UTF-8 HTML。

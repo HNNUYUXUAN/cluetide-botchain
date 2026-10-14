@@ -1,0 +1,31 @@
+{
+  "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+  "feedback": [
+    {
+      "acceptance_conditions": [
+        "State that each content revision needs its own designated reviewer approval.",
+        "Describe the three checks: original files and signatures; current chain authorization and receipt; actual downloaded artifact bytes.",
+        "State that file equality and the executor receipt do not establish business quality; tests and human review assess it."
+      ],
+      "chain_id": 677,
+      "content_hash": "0x2e446230ff862fa3f6263b5a4022a1892da5ca25cddb30a60052b1d7a4e01e84",
+      "contract_address": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+      "correction_transaction_hash": "0x98bbdd2a6f58033d68d67fa9090d7a6bd95035e539fedbd80a74819cb394e8c7",
+      "manifest_hash": "0xe049bfe26ef449376835fc0a57965f6091364ec7eeba660a2495eec82ca98bd5",
+      "reason": "Explain that every content change needs a new approval. Separate original-file and signature checks, current chain receipt checks, and actual downloaded-artifact checks. Explain that tests and human review assess business quality.",
+      "received_at": "2026-10-14T07:36:00+00:00",
+      "reviewer": "0xf888ff14ddcad446850756660042ccc330336565",
+      "schema": "cluetide.review-feedback.v1",
+      "signature": "0x14c740f023a4f12911f0bbf5764e09132caccf6f1478af57a88c894c8f92687f7bd86c60c04230c3b66dbce28ca1d0e20a81515d15168e244c880c219323ce1f1c",
+      "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+      "verification": {
+        "block_hash": "0x2ea6d255ef9c4df9116cb896191ce3d44949da7b2f547a912766483a628fae08",
+        "block_number": "26638462",
+        "confirmations": "126",
+        "observed_at": "2026-10-14T07:36:00+00:00",
+        "status": "verified"
+      },
+      "version_id": 2
+    }
+  ]
+}

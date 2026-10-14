@@ -1,0 +1,162 @@
+"""Bounded English release API, independently mountable on a release-only server."""
+import json
+
+from fastapi import APIRouter, Header, HTTPException, Request, Response
+from pydantic import ValidationError
+from starlette.concurrency import run_in_threadpool
+
+from .releases import (ChainRequest, CreateTask, CreateVersion, ExecuteRequest, MAX_REQUEST_BYTES,
+                       ReadRequest, ReleaseError, ReleaseService, VerifyRequest, attempt_identifier, identifier)
+from .release_imports import ImportPackage
+from .release_exchange import MAX_VERSION_REQUEST_BYTES
+from .release_feedback import FeedbackRequest, MAX_FEEDBACK_REQUEST_BYTES
+
+
+def _unique(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError()
+        result[key] = value
+    return result
+
+
+def _finite(_):
+    raise ValueError()
+
+
+def create_release_router(service: ReleaseService) -> APIRouter:
+    router = APIRouter(prefix="/api/releases", tags=["Controlled releases"])
+
+    def invoke(operation, *args, **kwargs):
+        try:
+            if operation.__name__ in {"create_task", "create_version", "issue_task_write_key", "import_version", "submit_feedback", "execute", "prepare", "verify"} and service.writes_paused():
+                raise ReleaseError("Production writes are paused. Save the original request and retry after cutover.", 503)
+            return operation(*args, **kwargs)
+        except ReleaseError as exc:
+            raise HTTPException(exc.status, detail=exc.message) from None
+        except (ValueError, KeyError, TypeError, UnicodeError, RecursionError):
+            raise HTTPException(422, detail="The release request or stored record could not be validated.") from None
+        except OSError:
+            raise HTTPException(503, detail="The release storage is unavailable. Preserve the execution state and retry verification.") from None
+
+    async def body(request, model, limit=MAX_REQUEST_BYTES):
+        payload = bytearray()
+        async for chunk in request.stream():
+            payload.extend(chunk)
+            if len(payload) > limit:
+                raise HTTPException(413, detail="The release request exceeds the size limit.")
+        try:
+            value = json.loads(payload, object_pairs_hook=_unique, parse_constant=_finite)
+            return model.model_validate(value)
+        except (ValueError, TypeError, UnicodeError, RecursionError, ValidationError):
+            raise HTTPException(422, detail="The release request could not be validated.") from None
+
+    async def call(operation, *args, **kwargs):
+        return await run_in_threadpool(invoke, operation, *args, **kwargs)
+
+    @router.get("/config")
+    async def config():
+        return await call(service.config)
+
+    @router.get("/readiness")
+    async def readiness():
+        from .release_readiness import readiness as check
+        return await call(check, service)
+
+    @router.get("/tasks/{task_id}/attempts/{attempt_id}/status")
+    async def attempt_status(task_id: str, attempt_id: str):
+        from .release_readiness import attempt_status as check
+        return await call(check, service, task_id, attempt_id)
+
+    @router.get("/tasks")
+    async def tasks():
+        return await call(service.list_tasks)
+
+    @router.post("/imports")
+    async def import_package(request: Request):
+        return await call(service.import_version, await body(request, ImportPackage, MAX_VERSION_REQUEST_BYTES))
+
+    @router.post("/tasks", status_code=201)
+    async def create_task(request: Request, response: Response):
+        task = await call(service.create_task, await body(request, CreateTask))
+        key = await call(service.issue_task_write_key, task["task_id"])
+        response.headers["Cache-Control"] = "no-store"
+        return {**task, "write_key": key}
+
+    @router.get("/tasks/{task_id}")
+    async def task(task_id: str):
+        return await call(service.get_task, task_id)
+
+    @router.post("/tasks/{task_id}/versions", status_code=201)
+    async def version(task_id: str, request: Request,
+                      write_key: str | None = Header(default=None, alias="X-ClueTide-Task-Key")):
+        await call(service.authorize_task_write_key, task_id, write_key)
+        return await call(service.create_version, task_id, await body(request, CreateVersion, MAX_VERSION_REQUEST_BYTES))
+
+    @router.post("/tasks/{task_id}/feedback")
+    async def submit_feedback(task_id: str, request: Request):
+        return await call(service.submit_feedback, task_id, await body(request, FeedbackRequest, MAX_FEEDBACK_REQUEST_BYTES))
+
+    @router.get("/tasks/{task_id}/feedback")
+    async def feedback(task_id: str, version: str | None = None):
+        version_id = None
+        if version is not None:
+            if not version.isascii() or not version.isdigit() or len(version) > 2 or not 1 <= int(version) <= 50:
+                raise HTTPException(422, detail="A valid release version is required.")
+            version_id = int(version)
+        return await call(service.feedback, task_id, version_id)
+
+    @router.get("/tasks/{task_id}/bundle")
+    async def bundle(task_id: str, version: str | None = None):
+        version_id = None
+        if version is not None:
+            if not version.isascii() or not version.isdigit() or len(version) > 4 or not 1 <= int(version) <= 1000:
+                raise HTTPException(422, detail="A valid release version is required.")
+            version_id = int(version)
+        payload = await call(service.bundle, task_id, version_id)
+        return Response(payload, media_type="application/zip", headers={"Content-Disposition": 'attachment; filename="release-bundle.zip"', "Cache-Control": "no-store"})
+
+    @router.post("/prepare")
+    async def prepare(request: Request):
+        return await call(service.prepare, await body(request, ChainRequest))
+
+    @router.post("/verify")
+    async def verify(request: Request):
+        return await call(service.verify, await body(request, VerifyRequest))
+
+    @router.post("/read")
+    async def read(request: Request):
+        return await call(service.read, await body(request, ReadRequest))
+
+    @router.post("/tasks/{task_id}/execute")
+    async def execute(task_id: str, request: Request):
+        return await call(service.execute, task_id, await body(request, ExecuteRequest))
+
+    @router.get("/attempts/{attempt_id}/receipt")
+    async def receipt(attempt_id: str, task_id: str | None = None):
+        return await call(service.receipt, attempt_id, task_id)
+
+    @router.post("/receipts/verify")
+    async def verify_receipt(request: Request):
+        class ReceiptRequest(ReadRequest):
+            envelope: dict
+        value = await body(request, ReceiptRequest)
+        if value.attempt_id is None or value.version_id is not None:
+            raise HTTPException(422, detail="A task and execution attempt are required for receipt verification.")
+        return await call(service.verify_receipt, value.task_id, value.attempt_id, value.envelope)
+
+    def artifact_response(payload):
+        return Response(payload, media_type="text/plain; charset=utf-8", headers={
+            "Content-Disposition": 'attachment; filename="artifact.html"', "Cache-Control": "no-store",
+            "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "sandbox; default-src 'none'"})
+
+    @router.get("/tasks/{task_id}/artifact")
+    async def artifact(task_id: str):
+        return artifact_response(await call(service.artifact, task_id))
+
+    @router.get("/attempts/{attempt_id}/artifact")
+    async def attempt_artifact(attempt_id: str, task_id: str | None = None):
+        return artifact_response(await call(service.artifact, task_id, attempt_id))
+
+    return router

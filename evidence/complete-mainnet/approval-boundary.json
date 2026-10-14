@@ -1,0 +1,39 @@
+{
+  "schema": "cluetide.readonly-approval-boundary.v1",
+  "checked_at": "2026-10-13T05:41:57.929566+00:00",
+  "task_id": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+  "transactions_sent": 0,
+  "checks": [
+    {
+      "version_id": 1,
+      "expected_revert": "StaleVersion()",
+      "selector": "0xa9647ee2",
+      "result": "blocked",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: 0xa9647ee2",
+          "data": "0xa9647ee2"
+        }
+      }
+    },
+    {
+      "version_id": 2,
+      "expected_revert": "InvalidDecision()",
+      "selector": "0xc2074cbc",
+      "result": "blocked",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: 0xc2074cbc",
+          "data": "0xc2074cbc"
+        }
+      }
+    }
+  ],
+  "read_block": "0x194935a"
+}

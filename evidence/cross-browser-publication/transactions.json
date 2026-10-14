@@ -1,0 +1,82 @@
+{
+  "checked_at": "2026-10-14T16:04:51+08:00",
+  "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+  "transactions": [
+    {
+      "operation": "create_task",
+      "version": 1,
+      "transaction_hash": "0xb3c7ead87344d12ee0418cda4adcf8e6ce2ea004defeb303c07f58a0f56b33f7",
+      "gas_used": 186727,
+      "actual_fee_wei": "3734540000000000",
+      "actual_fee_bot": "0.00373454",
+      "verification_file": "transaction-create_task-v1.json"
+    },
+    {
+      "operation": "submit_version",
+      "version": 1,
+      "transaction_hash": "0xfd3965ba3629e020d17e7f4e41383df3d110b0f163ec253e5205af55cdc40cb4",
+      "gas_used": 146642,
+      "actual_fee_wei": "2932840000000000",
+      "actual_fee_bot": "0.00293284",
+      "verification_file": "transaction-submit_version-v1.json"
+    },
+    {
+      "operation": "approve",
+      "version": 1,
+      "transaction_hash": "0x45a094dfbca69d6b685773cee53afacb5bf266d593e0162ab274e3f3a1f0c017",
+      "gas_used": 43926,
+      "actual_fee_wei": "878520000000000",
+      "actual_fee_bot": "0.00087852",
+      "verification_file": "transaction-approve-v1.json"
+    },
+    {
+      "operation": "submit_version",
+      "version": 2,
+      "transaction_hash": "0x6ac863d5f5eb9f458ea6effcd09a5b4fe3a8fb445ae622929af0c932daa2d176",
+      "gas_used": 149478,
+      "actual_fee_wei": "2989560000000000",
+      "actual_fee_bot": "0.00298956",
+      "verification_file": "transaction-submit_version-v2.json"
+    },
+    {
+      "operation": "request_correction",
+      "version": 2,
+      "transaction_hash": "0x98bbdd2a6f58033d68d67fa9090d7a6bd95035e539fedbd80a74819cb394e8c7",
+      "gas_used": 38072,
+      "actual_fee_wei": "761440000000000",
+      "actual_fee_bot": "0.00076144",
+      "verification_file": "transaction-request_correction-v2.json"
+    },
+    {
+      "operation": "submit_version",
+      "version": 3,
+      "transaction_hash": "0xd6e98f58bf7330a6340cb3772d552969f5c6069ca4a5b59f2a36e2fd326f3cd8",
+      "gas_used": 149478,
+      "actual_fee_wei": "2989560000000000",
+      "actual_fee_bot": "0.00298956",
+      "verification_file": "transaction-submit_version-v3.json"
+    },
+    {
+      "operation": "approve",
+      "version": 3,
+      "transaction_hash": "0x9f3b5af9eca07767a9e01aa947576812eacd248379fd7ae437e6a3199f0dcb1d",
+      "gas_used": 43950,
+      "actual_fee_wei": "879000000000000",
+      "actual_fee_bot": "0.000879",
+      "verification_file": "transaction-approve-v3.json"
+    },
+    {
+      "operation": "start_execution",
+      "version": 3,
+      "transaction_hash": "0x19e71f09f457b17dccfaa262671100eead9233c8a68885bee3327351d07808aa",
+      "gas_used": 159595,
+      "actual_fee_wei": "3191900000000000",
+      "actual_fee_bot": "0.0031919",
+      "verification_file": "transaction-start_execution-v3.json"
+    }
+  ],
+  "verified_count": 8,
+  "total_gas_used": 917868,
+  "total_fee_bot": "0.01835736",
+  "receipt_registration": "pending; user ended this round before final wallet confirmation"
+}

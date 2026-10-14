@@ -1,0 +1,45 @@
+{
+  "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+  "network": 677,
+  "contract": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+  "account": "0x054801af006663b16b84cee370267eca2b94686c",
+  "scope": "read-only exact consume simulation at API-verified canonical blocks; no transaction or Gas",
+  "checks": [
+    {
+      "version": 1,
+      "method": "eth_call",
+      "block_number": "26638094",
+      "block_hash": "0x7276a6e3713e8bfe19c07d81aad04e0805dbbbf6b6cf3341725a04074ad6f24e",
+      "expected_error": "StaleVersion()",
+      "expected_selector": "0xa9647ee2",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: 0xa9647ee2",
+          "data": "0xa9647ee2"
+        }
+      },
+      "canonical_block_rechecked": true
+    },
+    {
+      "version": 2,
+      "method": "eth_call",
+      "block_number": "26638099",
+      "block_hash": "0xb3a2040464ca89c0cb1fcb84c5ab1fa6c8d8634e62c513e006bfab1d11fac14b",
+      "expected_error": "InvalidDecision()",
+      "expected_selector": "0xc2074cbc",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: 0xc2074cbc",
+          "data": "0xc2074cbc"
+        }
+      },
+      "canonical_block_rechecked": true
+    }
+  ]
+}

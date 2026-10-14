@@ -1,0 +1,22 @@
+{
+  "schema": "cluetide.offline-acceptance-observation.v1",
+  "checked_at": "2026-10-14T07:59:35.961Z",
+  "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+  "version": 3,
+  "attempt": "1",
+  "zip_bytes": 9494,
+  "zip_sha256": "a2ed0f68b71b99d4b8fe1e9d70055bb9965be448dff59cd05ad55c27a9c2e7d9",
+  "offline": {
+    "files": true,
+    "signature": true,
+    "artifact": true
+  },
+  "chain": {
+    "status": "not_checked"
+  },
+  "onlineArtifact": {
+    "status": "not_checked"
+  },
+  "network_calls": 0,
+  "receipt_registration": "pending at closeout canonical read"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "verified",
+  "chain_id": 677,
+  "action": "record_receipt",
+  "transaction_hash": "0x6542bf81beb6225736404396d8dacbf041ecdfc292c0dc1e813f062a2404fd03",
+  "contract_address": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+  "artifact": {
+    "contract_name": "ClueTideReleaseWitness",
+    "compiler": "0.8.30+commit.73712a01",
+    "evm_version": "paris",
+    "source_sha256": "70fd0d0af14f2b694c03f5638b06bb4bbdeb3451224197f79350922afd1f538a",
+    "artifact_sha256": "f8aa0ad14ea29442a45ca8d1ca7ddb34bfca8093ac96f1d9681e6d52de64621b",
+    "bytecode_sha256": "d8d72eb81449aed3657c75817ea836ef0d9ae673c70286e923be6100e25b261a",
+    "runtime_sha256": "e93f90633367ec24b273c6590639ba1dabb277b2f318a1182530a1c8469f328c"
+  },
+  "commitments": {
+    "task_id": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+    "attempt_id": "1",
+    "receipt_hash": "0x9915c765385187c437541ddd9443fd0f3892db7c1ff01fb4fdcf2a7936c8f442",
+    "result": "1",
+    "signature": "0x6dc804e1b70811fb109f93344534ed015f9766fef7b97a9cc22b437004ea68820284d75c0e758207b928bcf7d4e7a758bfda1e82b62681dda1f62f9d490196771c"
+  },
+  "confirmations": "51",
+  "minimum_confirmations": "3",
+  "block_number": "26627315",
+  "block_hash": "0x83268298baa4677a5dbea6c3e807b2b38e692421f007f71b1b15f46da428e7c3",
+  "gas_used": "84375",
+  "effective_gas_price": "20000000000",
+  "actual_fee_wei": "1687500000000000",
+  "receipt_signer": "0xc0a54fc7daa998a2e8bacc015eeafd4591ac15a4",
+  "getter_state": {
+    "task": {
+      "owner": "0x054801af006663b16b84cee370267eca2b94686c",
+      "proposer": "0x054801af006663b16b84cee370267eca2b94686c",
+      "reviewer": "0xf888ff14ddcad446850756660042ccc330336565",
+      "executor": "0x054801af006663b16b84cee370267eca2b94686c",
+      "receipt_signer": "0xc0a54fc7daa998a2e8bacc015eeafd4591ac15a4",
+      "target_hash": "0x18b119bb1ecad244ddda6ea95b95cddc60f52783298d7f12d5d438c53d9d8a8f",
+      "version_count": "3",
+      "attempt_count": "1",
+      "created_at": "1791869342"
+    },
+    "attempt": {
+      "attempt_id": "1",
+      "version_id": "3",
+      "started_at": "1791954421",
+      "receipt_hash": "0x9915c765385187c437541ddd9443fd0f3892db7c1ff01fb4fdcf2a7936c8f442",
+      "result": "1",
+      "recorded_at": "1791954905"
+    }
+  },
+  "onchain_ids": {
+    "attempt_id": "1",
+    "version_id": "3"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "status": "verified",
+  "chain_id": 677,
+  "action": "request_correction",
+  "transaction_hash": "0x98bbdd2a6f58033d68d67fa9090d7a6bd95035e539fedbd80a74819cb394e8c7",
+  "contract_address": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+  "artifact": {
+    "contract_name": "ClueTideReleaseWitness",
+    "compiler": "0.8.30+commit.73712a01",
+    "evm_version": "paris",
+    "source_sha256": "70fd0d0af14f2b694c03f5638b06bb4bbdeb3451224197f79350922afd1f538a",
+    "artifact_sha256": "f8aa0ad14ea29442a45ca8d1ca7ddb34bfca8093ac96f1d9681e6d52de64621b",
+    "bytecode_sha256": "d8d72eb81449aed3657c75817ea836ef0d9ae673c70286e923be6100e25b261a",
+    "runtime_sha256": "e93f90633367ec24b273c6590639ba1dabb277b2f318a1182530a1c8469f328c"
+  },
+  "commitments": {
+    "task_id": "0x8864bb87800da24fe08785b95f079bfc4db18a3c3eabd102a8ea993b8ecf2609",
+    "version_id": "2"
+  },
+  "confirmations": "109",
+  "minimum_confirmations": "3",
+  "block_number": "26638462",
+  "block_hash": "0x2ea6d255ef9c4df9116cb896191ce3d44949da7b2f547a912766483a628fae08",
+  "gas_used": "38072",
+  "effective_gas_price": "20000000000",
+  "actual_fee_wei": "761440000000000",
+  "getter_state": {
+    "task": {
+      "owner": "0x054801af006663b16b84cee370267eca2b94686c",
+      "proposer": "0x054801af006663b16b84cee370267eca2b94686c",
+      "reviewer": "0xf888ff14ddcad446850756660042ccc330336565",
+      "executor": "0x054801af006663b16b84cee370267eca2b94686c",
+      "receipt_signer": "0xc0a54fc7daa998a2e8bacc015eeafd4591ac15a4",
+      "target_hash": "0xbf0853de75c75b5767a5569d1e4a598d5c17fbb519c595fdcfe9c22bc50d6979",
+      "version_count": "2",
+      "attempt_count": "0",
+      "created_at": "1791962240"
+    },
+    "version": {
+      "version_id": "2",
+      "parent_version_id": "1",
+      "manifest_hash": "0xe049bfe26ef449376835fc0a57965f6091364ec7eeba660a2495eec82ca98bd5",
+      "artifact_hash": "0x5358d3ddf2c9e430ba1452f4082fe1c39095ad50a8182f5860ae82eea43a042b",
+      "deadline": "1792560729",
+      "decision": "3",
+      "approved_at": "0",
+      "attempt_id": "0"
+    }
+  },
+  "onchain_ids": {
+    "version_id": "2"
+  }
+}
