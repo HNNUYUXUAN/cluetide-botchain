@@ -30,8 +30,43 @@ jobs:
           node-version: "24"
           cache: npm
           cache-dependency-path: frontend/package-lock.json
-      - run: python -m pip install -e '.[dev]'
-      - run: python -m pytest tests/test_release*.py -q
+      - run: python -m pip install -e '.[dev]' build ruff==0.14.2
+      - run: python -m pytest tests -q --junitxml=test-results/python.xml
       - run: python .devcontainer/test_codespaces.py
       - run: npm ci && npm test && npm run build
         working-directory: frontend
+      - run: npm ci && npm run compile:check && node scripts/generate-config.mjs --check
+      - run: ruff check src scripts tests --select E9,F63,F7,F82
+      - run: python scripts/toolchain.py install
+      - run: python scripts/toolchain.py forge test -vv && python scripts/toolchain.py forge snapshot --check
+      - run: python -m build && python scripts/verify-installed.py
+      - run: npm run build:local
+        working-directory: frontend
+      - name: Prepare project-local Python runtime
+        run: python -m venv .venv && .venv/bin/pip install -e '.[dev]'
+      - run: python scripts/demo.py --skip-install
+      - run: CLUETIDE_ANVIL_RPC=http://127.0.0.1:18545 python -m pytest tests/test_v2_safe_local.py -q
+      - run: npx playwright install --with-deps chromium && npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-evidence
+          path: |
+            test-results/
+            dist/
+            .local-demo/default/*.log
+  solidity-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install slither-analyzer==0.11.3
+      - run: solc-select install 0.8.30 && solc-select use 0.8.30
+      - run: slither contracts/ClueTideReleaseWitnessV2.sol --solc-args '--evm-version paris --optimize --optimize-runs 200' --exclude timestamp,low-level-calls --fail-high --json slither-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: solidity-analysis
+          path: slither-results.json

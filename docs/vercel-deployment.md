@@ -4,7 +4,7 @@ This runbook maps the organizer's October 2026 deployment tutorial to the releas
 
 | Tutorial section | Project configuration | Evidence required |
 |---|---|---|
-| 22–25: account and GitHub import | Existing personal Hobby account; existing `HNNUYUXUAN/cluetide-review`; API branch `workshop-codex/agent-release-witness`; frontend branch `vercel-production` | Limited repository authorization; actual project names and connected branch |
+| 22–25: account and GitHub import | Maintained source: `HNNUYUXUAN/cluetide-botchain`; historical deployment branch names are recorded in provenance | Limited repository authorization; actual project names and connected branch |
 | 26–28, 41: frontend build | Vite; root `frontend`; Node 24; `npm ci`; `npm run build`; output `dist` | Fresh install, build logs, anonymous HTML and asset readback |
 | 29, 43–44: backend and database | Separate FastAPI project at repository root; Python 3.12; `app.py`; 60 seconds; region `iad1`; Neon Free PostgreSQL nearby | API deployment, persistent database and secret configuration |
 | 32–34: navigation and resources | Hash routing; same-origin `/api/*` proxy; generated `frontend/vercel.json` | Fixed-version URL, refresh, API and desktop/390-pixel checks |

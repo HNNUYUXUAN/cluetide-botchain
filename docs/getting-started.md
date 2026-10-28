@@ -1,5 +1,9 @@
 # Installation and configuration
 
+For the complete v0.2.0 Anvil/Safe demonstration, run `python scripts/demo.py` and open http://127.0.0.1:8787. See the [current README](../README.md#local-demonstration), [Chinese quickstart](quickstart-zh.md), and [v2 deployment guide](deployment-v2.md).
+
+The configuration below describes the established v1 service entry, retained for historical verification and production maintenance.
+
 ## Install and run
 
 Use Python 3.12 and Node.js 24:
