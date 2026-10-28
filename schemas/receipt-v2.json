@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HNNUYUXUAN/cluetide-botchain/schemas/receipt-v2.json",
+  "title": "receipt-v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "protocol_version",
+    "chain_id",
+    "contract_address",
+    "task_id",
+    "version_id",
+    "attempt_id",
+    "manifest_hash",
+    "artifact_hash",
+    "target_id",
+    "executor",
+    "receipt_signer",
+    "authorization_tx",
+    "status",
+    "output_hash",
+    "operation",
+    "environment",
+    "started_at",
+    "completed_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "cluetide.execution-receipt.v2"
+    },
+    "protocol_version": {
+      "const": 2
+    },
+    "chain_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "contract_address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "version_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "attempt_id": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "manifest_hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "artifact_hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "executor": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "receipt_signer": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "authorization_tx": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "failed"
+      ]
+    },
+    "output_hash": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "operation": {
+      "const": "publish_static"
+    },
+    "environment": {
+      "const": "isolated-demo"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string"
+    }
+  }
+}

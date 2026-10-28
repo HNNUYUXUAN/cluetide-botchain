@@ -1,13 +1,14 @@
 {
   "name": "cluetide-workbench",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "build:local": "tsc -b && vite build --mode demo --outDir dist-local"
   },
   "dependencies": {
     "fflate": "0.8.3",

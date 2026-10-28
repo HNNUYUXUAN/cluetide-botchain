@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HNNUYUXUAN/cluetide-botchain/schemas/feedback-v2.json",
+  "title": "feedback-v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "deployment",
+    "task_id",
+    "version_id",
+    "manifest_hash",
+    "reviewer",
+    "correction_transaction_hash",
+    "content_hash",
+    "reason",
+    "acceptance_conditions",
+    "signature_scheme",
+    "signature"
+  ],
+  "properties": {
+    "schema": {
+      "const": "cluetide.review-feedback.v2"
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "chain_id",
+        "contract_address"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 2
+        },
+        "chain_id": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "contract_address": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        }
+      }
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "version_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "manifest_hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "reviewer": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "correction_transaction_hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "acceptance_conditions": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      }
+    },
+    "signature_scheme": {
+      "enum": [
+        "EIP-712",
+        "ERC-1271"
+      ]
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]+$",
+      "maxLength": 32770
+    }
+  }
+}

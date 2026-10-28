@@ -14,3 +14,12 @@ local-data/
 *.pfx
 *.log
 .tools/
+dist/
+build/
+out/
+cache/
+test-results/
+playwright-report/
+.local-demo/
+.safe-test.json
+frontend/dist-local/

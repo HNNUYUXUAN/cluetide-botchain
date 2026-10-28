@@ -1,0 +1,14 @@
+{
+  "chainId": 677,
+  "contract": "0xca71b77708674f5f2407c0ad4e599eaf5eb07281",
+  "rpc": "https://rpc.botchain.ai",
+  "explorer": "https://scan.botchain.ai",
+  "reviewer": "0xf888ff14ddcad446850756660042ccc330336565",
+  "receiptSigner": "0xc0a54fc7daa998a2e8bacc015eeafd4591ac15a4",
+  "publisher": "https://cluetide-release-api.vercel.app",
+  "policy": "cluetide.demo-release.v1",
+  "artifactBytes": 32768,
+  "confirmations": 3,
+  "verifiedTask": "0x0fd2d90c3d351480ce7d8de15c62285610d40fa532f31b872777fe0528901b02",
+  "protocolVersion": 1
+}
