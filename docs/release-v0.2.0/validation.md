@@ -14,6 +14,8 @@ Local validation date: 28 October 2026. Baseline: `61fad4a4d21c2721957ddbc7d6d4a
 | Python static error checks | Ruff E9/F63/F7/F82 passed |
 | Static frontend | Production build succeeds and excludes the local test adapter |
 | Historical artifacts | Original v1 source/artifact, mainnet evidence and provenance manifests unchanged |
+| Clean-directory bootstrap | Source extracted into an empty directory; fresh environment, tool downloads, frontend build, Anvil and Safe startup succeeded |
+| Startup compatibility | 17 established service/Codespaces checks passed |
 
 Foundry seed: `0x434c554554494445`. Reproduce with `python scripts/toolchain.py forge test -vv`; failing sequences are retained by Foundry under ignored `cache/`. Gas measurements are in `.gas-snapshot` and reflect this pinned configuration.
 
