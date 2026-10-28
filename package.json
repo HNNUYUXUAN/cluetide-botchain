@@ -1,0 +1,22 @@
+{
+  "name": "cluetide-toolchain",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "node scripts/compile-contracts.mjs",
+    "compile:check": "node scripts/compile-contracts.mjs --check",
+    "safe": "node scripts/safe-reviewer.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@safe-global/protocol-kit": "8.0.7",
+    "@safe-global/safe-contracts": "1.4.1",
+    "viem": "2.57.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "solc": "0.8.30"
+  },
+  "engines": {"node": "24.x"}
+}

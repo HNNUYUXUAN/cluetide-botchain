@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HNNUYUXUAN/cluetide-botchain/schemas/task-v2.json",
+  "title": "task-v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "deployment",
+    "task_id",
+    "salt",
+    "owner",
+    "proposer",
+    "reviewer",
+    "executor",
+    "receipt_signer",
+    "target_id",
+    "target",
+    "title",
+    "version_count",
+    "versions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "cluetide.release-task.v2"
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "chain_id",
+        "contract_address"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 2
+        },
+        "chain_id": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "contract_address": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        }
+      }
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "salt": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "owner": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "proposer": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "reviewer": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "executor": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "receipt_signer": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "target": {
+      "const": "demo-site"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "version_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 50
+    },
+    "versions": {
+      "type": "array",
+      "maxItems": 50
+    }
+  }
+}

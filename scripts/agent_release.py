@@ -204,12 +204,15 @@ def main() -> int:
     wait.add_argument("--until", choices=("decision", "execution", "receipt"), default="decision")
     verify = commands.add_parser("verify-package")
     verify.add_argument("--package", type=Path, required=True)
+    verify.add_argument("--deployment", type=Path)
     args = parser.parse_args()
     try:
         if args.command == "verify-package":
             if args.package.stat().st_size > MAX_PACKAGE_BYTES:
                 raise ValueError()
-            result = verify_package(args.package.read_bytes())
+            from cluetide.verification import verify as verify_evidence
+            from cluetide.deployment import Deployment
+            result = verify_evidence(args.package.read_bytes(),deployment=Deployment.load(args.deployment) if args.deployment else None)
             if "task" in result:
                 task = result.pop("task")
                 result["task_id"] = task["task_id"] if task else None
